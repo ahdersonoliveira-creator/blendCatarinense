@@ -1,0 +1,18 @@
+{
+  "name": "Gerador de Blends - Carbonífera Catarinense",
+  "short_name": "Gerador Blends",
+  "description": "Sistema de Geração de Blends de Cinzas",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#667eea",
+  "theme_color": "#667eea",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/1087/1087815.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
