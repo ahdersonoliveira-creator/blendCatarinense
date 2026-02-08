@@ -2789,28 +2789,18 @@
             if (confirm('Tem certeza que deseja excluir TODO o histórico salvo? Esta ação não pode ser desfeita.')) {
                 history = [];
                 saveData();
-       function openHistory() {
-    const list = document.getElementById('historyList');
-    list.innerHTML = history.length === 0 ? '<p>Nenhum histórico encontrado.</p>' : '';
-    
-    history.forEach((item, idx) => {
-        list.innerHTML += `
-            <div class="history-item" style="display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #eee;">
-                <div>
-                    <b>${item.lote}</b>  
-
-                    <small>${item.data} | PCS: ${item.metrics.pcs.toFixed(0)}</small>
-                </div>
-                <div style="display: flex; gap: 8px;">
-                    <button class="btn-primary" onclick="loadLot(${idx})" style="padding:5px 10px">Carregar</button>
-                    <button class="btn-danger" onclick="deleteHistoryItem(${idx})" style="padding:5px 10px; background-color: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer;">❌ Excluir</button>
-                </div>
-            </div>`;
-    });
-    document.getElementById('historyModal').style.display = 'block';
-}
-
-       
+           function openHistory() {
+            const list = document.getElementById('historyList');
+            list.innerHTML = history.length === 0 ? '<p>Nenhum histórico encontrado.</p>' : '';
+            history.forEach((item, idx) => {
+                list.innerHTML += `
+                    <div class="history-item">
+                        <div><b>${item.lote}</b><br><small>${item.data} | PCS: ${item.metrics.pcs.toFixed(0)}</small></div>
+                        <button class="btn-primary" onclick="loadLot(${idx})" style="padding:5px 10px">Carregar</button>
+                    </div>`;
+            });
+            document.getElementById('historyModal').style.display = 'block';
+        }
 
         function loadLot(idx) {
             const item = history[idx];
