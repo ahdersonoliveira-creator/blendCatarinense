@@ -1363,15 +1363,15 @@ Carbonífera" class="logo-img" style="max-width: 200px; height: auto; marginbott
                     <input type="text" id="numeroLote" placeholder="Ex: LT-2026-001" oninput="saveData()">
                 </div>
                 <div class="input-group">
-                    <label>Volume Total (Ton)</label>
+                    <label>Quantidade total do lote (T)</label>
                     <input type="number" id="totalToneladas" value="1000" oninput="updateResults()">
                 </div>
                 <div class="input-group">
-                    <label>Peso p/ Carreta (t)</label>
+                    <label>Média de peso p/ Carreta (t)</label>
                     <input type="number" id="pesoCarreta" value="20" oninput="updateResults()">
                 </div>
                 <div class="input-group">
-                    <label>Meta PCS Mínimo</label>
+                    <label>Limite mímimo do PCS</label>
                     <input type="number" id="metaPcsMin" value="4500" oninput="saveData()">
                 </div>
             </div>
@@ -1382,7 +1382,7 @@ Carbonífera" class="logo-img" style="max-width: 200px; height: auto; marginbott
                 <button id="btnToggleMistura" class="btn-toggle-mistura" onclick="toggleMistura()">OCULTAR MISTURA</button>
             </div>
             <div id="misturaContainer" class="mistura-container">
-                <div class="mistura-header">MISTURA</div>
+                <div class="mistura-header">MISTURA UTIZADA POR LOTE.</div>
                 
                 <div class="mistura-row">
                     <div class="mistura-item">
@@ -1658,6 +1658,11 @@ Carbonífera" class="logo-img" style="max-width: 200px; height: auto; marginbott
                 // Create default admin user
                 users = [
                     { username: 'Anderson', password: '200678', isAdmin: true }
+                    { username: 'Erivlton', password: 'erivelton123', isAdmin: true }
+                    { username: 'Vitor', password: 'vitor123', isAdmin: true }
+                    { username: 'Sandro', password: 'sandro123', isAdmin: true }
+                    { username: 'Afonso', password: 'afonso123', isAdmin: true }
+                
                 ];
                 saveUsers();
             }
@@ -1670,7 +1675,7 @@ Carbonífera" class="logo-img" style="max-width: 200px; height: auto; marginbott
                 showLogin();
                 // Pequeno aviso para novos usuários em outros computadores
                 if (!savedUsers) {
-                    console.log("Sistema inicializado em novo dispositivo. Use o usuário padrão Anderson para importar outros usuários se necessário.");
+                    console.log("Sistema inicializado em novo dispositivo. Use o usuário padrão Anderson ou usuários cadastrados como admistradores para importar outros usuários se necessário.");
                 }
             }
         }
@@ -1980,7 +1985,7 @@ Carbonífera" class="logo-img" style="max-width: 200px; height: auto; marginbott
                 percentages = data.percentages || percentages;
                 history = data.history || [];
                 document.getElementById('totalToneladas').value = data.totalTon || 1000;
-                document.getElementById('pesoCarreta').value = data.pesoCarreta || 20;
+                document.getElementById('pesoCarreta').value = data.pesoCarreta || 40;
                 document.getElementById('metaPcsMin').value = data.metaPcsMin || 4500;
                 document.getElementById('numeroLote').value = data.numeroLote || '';
                 if(data.misturaVisivel === false) toggleMistura();
@@ -2147,7 +2152,7 @@ Carbonífera" class="logo-img" style="max-width: 200px; height: auto; marginbott
 
             const pcsOk = m.pcs >= 4500;
             const czOk = m.cinza <= 44;
-            const umidOk = m.umid <= 10;
+            const umidOk = m.umid <= 10.30;
             const enxOk = m.enxofre <= 2.30;
             const pOk = Math.abs(m.soma - 100) < 0.01;
             const allOk = pcsOk && czOk && umidOk && enxOk && pOk;
@@ -2224,7 +2229,7 @@ Carbonífera" class="logo-img" style="max-width: 200px; height: auto; marginbott
             const m = calculateMetrics(percentages, document.getElementById('totalToneladas').value);
             const pcsOk = m.pcs >= 4500;
             const cinzaOk = m.cinza <= 44;
-            const umidOk = m.umid <= 10;
+            const umidOk = m.umid <= 10.30;
             const enxOk = m.enxofre <= 2.30;
             return pcsOk && cinzaOk && umidOk && enxOk;
         }
@@ -2252,7 +2257,7 @@ Carbonífera" class="logo-img" style="max-width: 200px; height: auto; marginbott
             
             const pcsOk = metrics.pcs >= 4500;
             const czOk = metrics.cinza <= 44;
-            const umidOk = metrics.umid <= 10;
+            const umidOk = metrics.umid <= 10.30;
             const enxOk = metrics.enxofre <= 2.30;
             
             ultimoResumo = {
@@ -2666,7 +2671,7 @@ Carbonífera" class="logo-img" style="max-width: 200px; height: auto; marginbott
 
             const pcsOk = m.pcs >= 4500;
             const czOk = m.cinza <= 44;
-            const umidOk = m.umid <= 10;
+            const umidOk = m.umid <= 10.30;
             const enxOk = m.enxofre <= 2.30;
             const isOk = pcsOk && czOk && umidOk && enxOk;
 
