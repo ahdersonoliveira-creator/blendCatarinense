@@ -2667,7 +2667,7 @@ Carbonífera" class="logo-img" style="max-width: 200px; height: auto; marginbott
 
             const pcsOk = m.pcs >= 4500;
             const czOk = m.cinza <= 44;
-            const umidOk = m.umid <= 10,30;
+            const umidOk = m.umid <= 10;
             const enxOk = m.enxofre <= 2.30;
             const isOk = pcsOk && czOk && umidOk && enxOk;
 
@@ -2752,7 +2752,7 @@ Carbonífera" class="logo-img" style="max-width: 200px; height: auto; marginbott
                         <div class="pdf-result-box">
                             <div class="pdf-result-label">Umidade</div>
                             <div class="pdf-result-value">${m.umid.toFixed(2)}%</div>
-                            <div class="pdf-result-status">Ref: <= 10.30%</div>
+                            <div class="pdf-result-status">Ref: <= 10%</div>
                             <div class="pdf-status-badge ${umidOk ? 'pdf-status-ok' : 'pdf-status-error'}">
                                 ${umidOk ? 'Conforme' : 'Não Conforme'}
                             </div>
