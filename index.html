@@ -2789,28 +2789,26 @@
             if (confirm('Tem certeza que deseja excluir TODO o histórico salvo? Esta ação não pode ser desfeita.')) {
                 history = [];
                 saveData();
-        function openHistory() 
+       function openHistory() {
+    const list = document.getElementById('historyList');
+    list.innerHTML = history.length === 0 ? '<p>Nenhum histórico encontrado.</p>' : '';
+    
+    history.forEach((item, idx) => {
+        list.innerHTML += `
+            <div class="history-item" style="display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #eee;">
+                <div>
+                    <b>${item.lote}</b>  
+
+                    <small>${item.data} | PCS: ${item.metrics.pcs.toFixed(0)}</small>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <button class="btn-primary" onclick="loadLot(${idx})" style="padding:5px 10px">Carregar</button>
+                    <button class="btn-danger" onclick="deleteHistoryItem(${idx})" style="padding:5px 10px; background-color: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer;">❌ Excluir</button>
+                </div>
+            </div>`;
+    });
+    document.getElementById('historyModal').style.display = 'block';
 }
-                function deleteHistoryItem(idx) {
-// Pede confirmação ao usuário antes de excluir
-if (confirm('Tem certeza que deseja excluir este registro do histórico
-permanentemente?')) {
-// 1. Remove o item específico do array 'history' usando o índice
-(idx)
-history.splice(idx, 1);
-// 2. Salva o array atualizado no localStorage (banco de dados do
-navegador)
-saveData();
-// 3. Atualiza a lista na tela imediatamente para mostrar que o item
-sumiu
-openHistory();
-// Opcional: Mostra um aviso de sucesso
-console.log('Item removido com sucesso.');
-}
-}
-                alert('Histórico excluído com sucesso!');
-            }
-        }
 
        
 
