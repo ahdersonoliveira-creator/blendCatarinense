@@ -2659,7 +2659,7 @@ Carbonífera" class="logo-img" style="max-width: 200px; height: auto; marginbott
             if(pdfBtn) pdfBtn.style.display = 'inline-block';
         }
 
-function generatePDF() {
+       function generatePDF() {
             const now = new Date();
             const lote = document.getElementById('numeroLote').value || 'S/ID';
             const totalTon = parseFloat(document.getElementById('totalToneladas').value) || 1000;
@@ -2777,7 +2777,7 @@ function generatePDF() {
                 </div>
             `;
 
-const opt = {
+       const opt = {
 margin: [10, 10, 10, 10],
 filename: `Relatorio_Blend_${lote}_${now.getTime()}.pdf`,
 image: { type: 'jpeg', quality: 0.98 },
@@ -2795,7 +2795,7 @@ container.innerHTML = '';
 }, 500);
 }
 
-    const opt = {
+        const opt = {
                 margin: [10, 10, 10, 10],
                 filename: `Relatorio_Blend_${lote}_${now.getTime()}.pdf`,
                 image: { type: 'jpeg', quality: 0.98 },
