@@ -2812,18 +2812,7 @@ console.log('Item removido com sucesso.');
             }
         }
 
-        function openHistory() {
-            const list = document.getElementById('historyList');
-            list.innerHTML = history.length === 0 ? '<p>Nenhum histórico encontrado.</p>' : '';
-            history.forEach((item, idx) => {
-                list.innerHTML += `
-                    <div class="history-item">
-                        <div><b>${item.lote}</b><br><small>${item.data} | PCS: ${item.metrics.pcs.toFixed(0)}</small></div>
-                        <button class="btn-primary" onclick="loadLot(${idx})" style="padding:5px 10px">Carregar</button>
-                    </div>`;
-            });
-            document.getElementById('historyModal').style.display = 'block';
-        }
+       
 
         function loadLot(idx) {
             const item = history[idx];
