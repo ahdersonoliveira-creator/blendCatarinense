@@ -2789,7 +2789,43 @@
             if (confirm('Tem certeza que deseja excluir TODO o histórico salvo? Esta ação não pode ser desfeita.')) {
                 history = [];
                 saveData();
-                openHistory();
+               function openHistory() {
+const list = document.getElementById('historyList');
+// Verifica se há itens no histórico
+if (history.length === 0) {
+list.innerHTML = '<p style="text-align: center; padding: 20px;
+color: #666;">Nenhum histórico encontrado.</p>';
+} else {
+list.innerHTML = ''; // Limpa a lista antes de preencher
+}
+// Percorre o histórico e cria os itens na tela
+history.forEach((item, idx) => {
+list.innerHTML += `
+<div class="history-item" style="display: flex; justify-content:
+space-between; align-items: center; padding: 12px; border-bottom: 1px solid
+#eee; margin-bottom: 5px; background: #fff; border-radius: 4px;">
+<div style="flex-grow: 1;">
+<div style="font-weight: bold; color: #1e3a5f; fontsize: 11pt;">${item.lote}</div>
+<div style="font-size: 9pt; color: #666;">${item.data} |
+PCS: ${item.metrics.pcs.toFixed(0)}</div>
+</div>
+<div style="display: flex; gap: 8px;">
+<button class="btn-primary" onclick="loadLot(${idx})"
+style="padding: 6px 12px; font-size: 9pt; cursor: pointer;">
+Carregar
+</button>
+<button class="btn-danger"
+onclick="deleteHistoryItem(${idx})" style="padding: 6px 12px; font-size:
+9pt; background-color: #dc3545; color: white; border: none; border-radius:
+4px; cursor: pointer;">
+❌ Excluir
+</button>
+</div>
+</div>`;
+});
+// Abre o modal do histórico
+document.getElementById('historyModal').style.display = 'block';
+}
                 function deleteHistoryItem(idx) {
 // Pede confirmação ao usuário antes de excluir
 if (confirm('Tem certeza que deseja excluir este registro do histórico
