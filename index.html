@@ -1384,18 +1384,18 @@
                 <div class="mistura-row">
                     <div class="mistura-item">
                         <label>1º Lote :</label>
-                        <input type="text" id="misturaLoteInfo" value="25 cargas" oninput="saveData()">
+                        <input type="text" id="misturaLoteInfo" value="0  cargas" oninput="saveData()">
                     </div>
                 </div>
                 
                 <div class="mistura-row">
                     <div class="mistura-item">
                         <label>Carvão bonito :</label>
-                        <input type="text" id="misturaBonitoCargas" value="20 cargas" oninput="saveData()">
+                        <input type="text" id="misturaBonitoCargas" value="0  cargas" oninput="saveData()">
                     </div>
                     <div class="mistura-item">
                         <label>: Usar</label>
-                        <input type="text" id="misturaBonitoConchadas" value="02" oninput="saveData()">
+                        <input type="text" id="misturaBonitoConchadas" value="0 " oninput="saveData()">
                         <label>conchadas de especial</label>
                     </div>
                 </div>
@@ -1403,13 +1403,13 @@
                 <div class="mistura-row">
                     <div class="mistura-item">
                         <label>Mistura de Finos + Especial :</label>
-                        <input type="text" id="misturaFinosCargas" value="05 cargas" oninput="saveData()">
+                        <input type="text" id="misturaFinosCargas" value="0  cargas" oninput="saveData()">
                     </div>
                     <div class="mistura-item">
                         <label>: Usar</label>
-                        <input type="text" id="misturaFinosConchadas" value="02" oninput="saveData()">
+                        <input type="text" id="misturaFinosConchadas" value="0 " oninput="saveData()">
                         <label>de Finos e</label>
-                        <input type="text" id="misturaEspecialConchadas" value="01" oninput="saveData()">
+                        <input type="text" id="misturaEspecialConchadas" value="0 " oninput="saveData()">
                         <label>de Especial por carreta</label>
                     </div>
                 </div>
@@ -1430,11 +1430,11 @@
             </div>
 
             <div class="actions">
-                <button class="btn-primary" onclick="autoBlend()">🤖 AUTO BLEND (43-44% CINZA)</button>
+                <button class="btn-primary" onclick="autoBlend()">🤖 AUTO BLEND </button>
                 <button class="btn-info" onclick="autoBlend(true)" style="background-color: #3498db;">💰 BLEND MAIS RENTÁVEL</button>
                 <button class="btn-success" onclick="saveCurrentLot()">💾 SALVAR LOTE</button>
                 <button class="btn-secondary" onclick="openStockManager()">📦 ESTOQUE</button>
-                <button class="btn-danger" id="pdfButton" onclick="generatePDF()" style="display:none">📄 GERAR PDF</button>
+                <button class="btn-danger" id="pdfButton" onclick="generatePDF()" style="display:none">
             </div>
 
             <!-- Dashboard de Resumo do Lote -->
@@ -1513,7 +1513,7 @@
                             </div>
                             <div class="quality-value" id="resumoUmidade">-</div>
                             <div class="quality-unit">%</div>
-                            <div class="quality-reference">Ref: ≤ 10%</div>
+                            <div class="quality-reference">Ref: ≤ 10.30%</div>
                             <div class="quality-status" id="resumoStatusUmidade">-</div>
                         </div>
 
@@ -2144,7 +2144,7 @@
 
             const pcsOk = m.pcs >= 4500;
             const czOk = m.cinza <= 44;
-            const umidOk = m.umid <= 10;
+            const umidOk = m.umid <= 10.30;
             const enxOk = m.enxofre <= 2.30;
             const pOk = Math.abs(m.soma - 100) < 0.01;
             const allOk = pcsOk && czOk && umidOk && enxOk && pOk;
@@ -2221,7 +2221,7 @@
             const m = calculateMetrics(percentages, document.getElementById('totalToneladas').value);
             const pcsOk = m.pcs >= 4500;
             const cinzaOk = m.cinza <= 44;
-            const umidOk = m.umid <= 10;
+            const umidOk = m.umid <= 10.30;
             const enxOk = m.enxofre <= 2.30;
             return pcsOk && cinzaOk && umidOk && enxOk;
         }
@@ -2249,7 +2249,7 @@
             
             const pcsOk = metrics.pcs >= 4500;
             const czOk = metrics.cinza <= 44;
-            const umidOk = metrics.umid <= 10;
+            const umidOk = metrics.umid <= 10.30;
             const enxOk = metrics.enxofre <= 2.30;
             
             ultimoResumo = {
@@ -2663,7 +2663,7 @@
 
             const pcsOk = m.pcs >= 4500;
             const czOk = m.cinza <= 44;
-            const umidOk = m.umid <= 10;
+            const umidOk = m.umid <= 10.30;
             const enxOk = m.enxofre <= 2.30;
             const isOk = pcsOk && czOk && umidOk && enxOk;
 
@@ -2748,7 +2748,7 @@
                         <div class="pdf-result-box">
                             <div class="pdf-result-label">Umidade</div>
                             <div class="pdf-result-value">${m.umid.toFixed(2)}%</div>
-                            <div class="pdf-result-status">Ref: <= 10%</div>
+                            <div class="pdf-result-status">Ref: <= 10.30%</div>
                             <div class="pdf-status-badge ${umidOk ? 'pdf-status-ok' : 'pdf-status-error'}">
                                 ${umidOk ? 'Conforme' : 'Não Conforme'}
                             </div>
