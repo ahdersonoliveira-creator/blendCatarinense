@@ -2790,6 +2790,23 @@
                 history = [];
                 saveData();
                 openHistory();
+                function deleteHistoryItem(idx) {
+// Pede confirmação ao usuário antes de excluir
+if (confirm('Tem certeza que deseja excluir este registro do histórico
+permanentemente?')) {
+// 1. Remove o item específico do array 'history' usando o índice
+(idx)
+history.splice(idx, 1);
+// 2. Salva o array atualizado no localStorage (banco de dados do
+navegador)
+saveData();
+// 3. Atualiza a lista na tela imediatamente para mostrar que o item
+sumiu
+openHistory();
+// Opcional: Mostra um aviso de sucesso
+console.log('Item removido com sucesso.');
+}
+}
                 alert('Histórico excluído com sucesso!');
             }
         }
