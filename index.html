@@ -2148,7 +2148,7 @@ Carbonífera" class="logo-img" style="max-width: 200px; height: auto; marginbott
 
             const pcsOk = m.pcs >= 4500;
             const czOk = m.cinza <= 44;
-            const umidOk = m.umid <= 10;
+            const umidOk = m.umid <= 10.30;
             const enxOk = m.enxofre <= 2.30;
             const pOk = Math.abs(m.soma - 100) < 0.01;
             const allOk = pcsOk && czOk && umidOk && enxOk && pOk;
@@ -2225,7 +2225,7 @@ Carbonífera" class="logo-img" style="max-width: 200px; height: auto; marginbott
             const m = calculateMetrics(percentages, document.getElementById('totalToneladas').value);
             const pcsOk = m.pcs >= 4500;
             const cinzaOk = m.cinza <= 44;
-            const umidOk = m.umid <= 10;
+            const umidOk = m.umid <= 10.30;
             const enxOk = m.enxofre <= 2.30;
             return pcsOk && cinzaOk && umidOk && enxOk;
         }
@@ -2253,7 +2253,7 @@ Carbonífera" class="logo-img" style="max-width: 200px; height: auto; marginbott
             
             const pcsOk = metrics.pcs >= 4500;
             const czOk = metrics.cinza <= 44;
-            const umidOk = metrics.umid <= 10;
+            const umidOk = metrics.umid <= 10.30;
             const enxOk = metrics.enxofre <= 2.30;
             
             ultimoResumo = {
