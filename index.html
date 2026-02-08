@@ -1671,7 +1671,7 @@ Carbonífera" class="logo-img" style="max-width: 200px; height: auto; marginbott
                 showLogin();
                 // Pequeno aviso para novos usuários em outros computadores
                 if (!savedUsers) {
-                    console.log("Sistema inicializado em novo dispositivo. Use o usuário padrão Anderson para importar outros usuários se necessário.");
+                    console.log("Sistema inicializado em novo dispositivo. Use o usuário padrão Anderson OU USUÁRIOS QUE FOREM CADASTRADOS COMO ADMINSTRADOR para importar outros usuários se necessário.");
                 }
             }
         }
@@ -2148,7 +2148,7 @@ Carbonífera" class="logo-img" style="max-width: 200px; height: auto; marginbott
 
             const pcsOk = m.pcs >= 4500;
             const czOk = m.cinza <= 44;
-            const umidOk = m.umid <= 10;
+            const umidOk = m.umid <= 10.30;
             const enxOk = m.enxofre <= 2.30;
             const pOk = Math.abs(m.soma - 100) < 0.01;
             const allOk = pcsOk && czOk && umidOk && enxOk && pOk;
@@ -2225,7 +2225,7 @@ Carbonífera" class="logo-img" style="max-width: 200px; height: auto; marginbott
             const m = calculateMetrics(percentages, document.getElementById('totalToneladas').value);
             const pcsOk = m.pcs >= 4500;
             const cinzaOk = m.cinza <= 44;
-            const umidOk = m.umid <= 10;
+            const umidOk = m.umid <= 10.30;
             const enxOk = m.enxofre <= 2.30;
             return pcsOk && cinzaOk && umidOk && enxOk;
         }
@@ -2253,7 +2253,7 @@ Carbonífera" class="logo-img" style="max-width: 200px; height: auto; marginbott
             
             const pcsOk = metrics.pcs >= 4500;
             const czOk = metrics.cinza <= 44;
-            const umidOk = metrics.umid <= 10;
+            const umidOk = metrics.umid <= 10.30;
             const enxOk = metrics.enxofre <= 2.30;
             
             ultimoResumo = {
@@ -2667,7 +2667,7 @@ Carbonífera" class="logo-img" style="max-width: 200px; height: auto; marginbott
 
             const pcsOk = m.pcs >= 4500;
             const czOk = m.cinza <= 44;
-            const umidOk = m.umid <= 10;
+            const umidOk = m.umid <= 10,30;
             const enxOk = m.enxofre <= 2.30;
             const isOk = pcsOk && czOk && umidOk && enxOk;
 
@@ -2752,7 +2752,7 @@ Carbonífera" class="logo-img" style="max-width: 200px; height: auto; marginbott
                         <div class="pdf-result-box">
                             <div class="pdf-result-label">Umidade</div>
                             <div class="pdf-result-value">${m.umid.toFixed(2)}%</div>
-                            <div class="pdf-result-status">Ref: <= 10%</div>
+                            <div class="pdf-result-status">Ref: <= 10.30%</div>
                             <div class="pdf-status-badge ${umidOk ? 'pdf-status-ok' : 'pdf-status-error'}">
                                 ${umidOk ? 'Conforme' : 'Não Conforme'}
                             </div>
