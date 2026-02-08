@@ -24,7 +24,7 @@
             --danger: #e74c3c;
             --light: #ecf0f1;
             --dark: #2c3e50;
-            --bg-body: #f4f7f6;
+            --bg-body: #f0f7ff;
             --bg-container: #ffffff;
             --text-color: #2c3e50;
             --border-color: #ddd;
@@ -1358,7 +1358,7 @@
             <div class="config-section">
                 <div class="input-group">
                     <label>Número do Lote</label>
-                    <input type="text" id="numeroLote" placeholder="Ex: LT-2026-001" oninput="saveData()">
+                    <input type="text" id="numeroLote" placeholder="Ex: LT-CAT" oninput="saveData()">
                 </div>
                 <div class="input-group">
                     <label>Volume Total (Ton)</label>
@@ -1376,28 +1376,28 @@
 
             
             <div class="toggle-container" style="gap: 10px;">
-                <button id="btnOcultarZerados" class="btn-toggle-mistura" onclick="toggleOcultarZerados()" style="background-color: #7f8c8d;">OCULTAR ZERADOS</button>
+                <button id="btnOcultarZerados" class="btn-toggle-mistura" onclick="toggleOcultarZerados()" style="background-color: #7f8c8d;">OCULTAR MATERIAIS ZERADOS</button>
                 <button id="btnToggleMistura" class="btn-toggle-mistura" onclick="toggleMistura()">OCULTAR MISTURA</button>
             </div>
             <div id="misturaContainer" class="mistura-container">
-                <div class="mistura-header">MISTURA</div>
+                <div class="mistura-header">MISTURA DO LOTE</div>
                 
                 <div class="mistura-row">
                     <div class="mistura-item">
                         <label>1º Lote :</label>
-                        <input type="text" id="misturaLoteInfo" value="25 cargas" oninput="saveData()">
+                        <input type="text" id="misturaLoteInfo" value="   cargas" oninput="saveData()">
                     </div>
                 </div>
                 
                 <div class="mistura-row">
                     <div class="mistura-item">
                         <label>Carvão bonito :</label>
-                        <input type="text" id="misturaBonitoCargas" value="20 cargas" oninput="saveData()">
+                        <input type="text" id="misturaBonitoCargas" value="   cargas" oninput="saveData()">
                     </div>
                     <div class="mistura-item">
                         <label>: Usar</label>
-                        <input type="text" id="misturaBonitoConchadas" value="02" oninput="saveData()">
-                        <label>conchadas de especial</label>
+                        <input type="text" id="misturaBonitoConchadas" value="  " oninput="saveData()">
+                        <label>conchadas de especia por carreta de carvãol</label>
                     </div>
                 </div>
                 
@@ -1408,10 +1408,10 @@
                     </div>
                     <div class="mistura-item">
                         <label>: Usar</label>
-                        <input type="text" id="misturaFinosConchadas" value="02" oninput="saveData()">
+                        <input type="text" id="misturaFinosConchadas" value="  " oninput="saveData()">
                         <label>de Finos e</label>
-                        <input type="text" id="misturaEspecialConchadas" value="01" oninput="saveData()">
-                        <label>de Especial por carreta</label>
+                        <input type="text" id="misturaEspecialConchadas" value="  " oninput="saveData()">
+                        <label>de Especial </label>
                     </div>
                 </div>
             
@@ -1431,7 +1431,7 @@
             </div>
 
             <div class="actions">
-                <button class="btn-primary" onclick="autoBlend()">🤖 AUTO BLEND (43-44% CINZA)</button>
+                <button class="btn-primary" onclick="autoBlend()">🤖 AUTO BLEND </button>
                 <button class="btn-info" onclick="autoBlend(true)" style="background-color: #3498db;">💰 BLEND MAIS RENTÁVEL</button>
                 <button class="btn-success" onclick="saveCurrentLot()">💾 SALVAR LOTE</button>
                 <button class="btn-secondary" onclick="openStockManager()">📦 ESTOQUE</button>
